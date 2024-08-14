@@ -87,3 +87,95 @@ df = pd.read_json('books_nested.json')
 df_flat = pd.json_normalize(df['nested_column'])
 
 # 5. Importing Data from Web APIs
+APIs (Application Programming Interfaces) are used to retrieve data from web services.
+
+import requests  
+import pandas as pd
+
+-- Fetch data from an API  
+response = requests.get('https://api.example.com/books')
+data = response.json()
+
+-- Convert JSON data to DataFrame  
+df = pd.DataFrame(data)
+
+-- Display the first few rows  
+print(df.head())
+
+# 6. Importing Data via Web Scraping
+Web scraping involves extracting data from websites using programming languages.  
+'BeautifulSoup' and 'requests' are commonly used libraries for this purpose.
+
+import requests  
+from bs4 import BeautifulSoup  
+import pandas as pd  
+
+-- Fetch HTML content from a webpage  
+response = requests.get('https://example.com/books')
+soup = BeautifulSoup(response.content, 'html.parser')
+
+-- Extract relevant data (assuming table structure)  
+table = soup.find('table')  
+df = pd.read_html(str(table))[0]
+
+-- Display the first few rows  
+print(df.head())
+
+# 7. Importing Data from Dictionaries
+Dictionaries are a common way to represent structured data in Python, where data is stored in key-value pairs. You can easily convert dictionaries to a pandas DataFrame, which is a powerful data structure for analyzing tabular data.
+
+## (a) Basic Dictionary to DataFrame / Dictionary of Lists
+If you have a dictionary where the keys represent column names and the values are lists (representing rows of data), you can directly convert it to a DataFrame.
+
+import pandas as pd  
+
+-- Example dictionary  
+data = {  
+    "Title": ["Book A", "Book B", "Book C"],  
+    "Author": ["Author A", "Author B", "Author C"],  
+    "Year": [2001, 2005, 2010],  
+    "Price": [10.99, 12.99, 8.99]  
+}
+
+-- Convert dictionary to DataFrame  
+df = pd.DataFrame(data)
+
+-- Display the DataFrame  
+print(df)
+
+
+## (b) Dictionary of Dictionaries
+If your dictionary contains nested dictionaries, where the outer dictionary keys are row labels and inner dictionaries represent column names, you can still convert this structure into a DataFrame.
+
+import pandas as pd  
+
+-- Example dictionary  
+books_dict = {  
+    "Book1": {"Title": "The Great Gatsby",   "Author": "F. Scott Fitzgerald", "Year": 1925,  "Price": 10.99},  
+    "Book2": {"Title": "To Kill a Mockingbird", "Author": "Harper Lee", "Year": 1960, "Price": 7.99},  
+    "Book3": {"Title": "1984", "Author": "George Orwell", "Year": 1949, "Price": 8.99}
+}
+
+-- Convert dictionary of dictionaries to DataFrame  
+df = pd.DataFrame(books_dict).T  # Transpose to get the right structure
+
+-- Display the DataFrame  
+print(df)
+
+## (c) Using Lists of Dictionaries
+If you have a list of dictionaries where each dictionary represents a row, you can convert this directly to a DataFrame.
+
+import pandas as pd  
+
+-- Example list of dictionaries  
+books_list = [  
+    {"Title": "The Great Gatsby", "Author": "F. Scott Fitzgerald", "Year": 1925, "Price": 10.99},  
+    {"Title": "To Kill a Mockingbird", "Author": "Harper Lee", "Year": 1960, "Price": 7.99},  
+    {"Title": "1984", "Author": "George Orwell", "Year": 1949, "Price": 8.99}  
+]
+
+-- Convert list of dictionaries to DataFrame  
+df = pd.DataFrame(books_list)
+
+-- Display the DataFrame  
+print(df)
