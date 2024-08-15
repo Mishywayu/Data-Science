@@ -35,4 +35,55 @@ df.to_csv('output_books.csv', index=False)
 df = pd.read_excel('books.xlsx', sheet_name='Sheet1')
 
 ## d. Writing to Excel
-df.to_excel('output_books.xlsx', index=False)
+df.to_excel('output_books.xlsx', index=False)  
+
+# 3. Data Exploration
+Exploring the structure and contents of your DataFrame is essential.
+## a. Viewing Data
+* First 5 rows  
+print(df.head())
+
+* Last 5 rows  
+print(df.tail())
+
+* Summary statistics  
+print(df.describe())
+
+* Data types
+print(df.dtypes)
+
+## b. Shape of Data
+print(df.shape)  # (rows, columns)
+
+## c. Information Summary
+print(df.info())
+
+
+# 4. Selecting Data
+You can select data from a DataFrame using various methods.
+
+## a. Selecting Columns
+### Example code
+-- Single column  
+print(df['Title'])
+
+-- Multiple columns  
+print(df[['Title', 'Author']])
+
+## b. Selecting Rows
+* By Index Position:  
+print(df.iloc[0])  # First row
+
+* By Index Label:  
+df.set_index('Title', inplace=True)  
+print(df.loc['1984'])  # Row with index '1984'
+
+## c. Slicing Data
+### Example code
+-- Slicing rows  
+print(df.iloc[1:3])
+
+-- Slicing columns  
+print(df.iloc[:, 0:2])
+
+# 5. Filtering Data
