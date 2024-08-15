@@ -153,7 +153,7 @@ import pandas as pd
 books_dict = {  
     "Book1": {"Title": "The Great Gatsby",   "Author": "F. Scott Fitzgerald", "Year": 1925,  "Price": 10.99},  
     "Book2": {"Title": "To Kill a Mockingbird", "Author": "Harper Lee", "Year": 1960, "Price": 7.99},  
-    "Book3": {"Title": "1984", "Author": "George Orwell", "Year": 1949, "Price": 8.99}
+    "Book3": {"Title": "1984", "Author": "George Orwell", "Year": 1949, "Price": 8.99}    
 }
 
 -- Convert dictionary of dictionaries to DataFrame  
