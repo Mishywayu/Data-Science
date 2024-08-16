@@ -87,3 +87,59 @@ print(df.iloc[1:3])
 print(df.iloc[:, 0:2])
 
 # 5. Filtering Data
+You can filter data based on conditions.
+
+### Example code
+-- Books published after 1950  
+print(df[df['Year'] > 1950])
+
+-- Books priced below $10  
+print(df[df['Price'] < 10])
+
+
+# 6. Adding and Removing Data
+## a. Adding Columns
+#### Example code
+-- Adding a new column  
+df['Discounted Price'] = df['Price'] * 0.9
+print(df)
+
+## b. Removing Columns
+#### Example code
+-- Removing a column  
+df.drop('Discounted Price', axis=1, inplace=True)
+
+
+## c. Adding Rows
+#### Example code
+-- Adding a new row  
+new_book = pd.Series({  
+    "Title": "Brave New World",  
+    "Author": "Aldous Huxley",  
+    "Year": 1932,  
+    "Price": 6.99  
+    })  
+df = df.append(new_book, ignore_index=True)  
+print(df)
+
+
+## d. Removing Rows
+#### Example code
+-- Removing a row by index  
+df.drop(0, axis=0, inplace=True)
+
+
+# 7. Handling Missing Data
+Missing data can be filled, replaced, or removed.
+### Example code
+-- Checking for missing values  
+print(df.isnull().sum())
+
+-- Filling missing values  
+df.fillna(value={"Price": df['Price'].mean()}, inplace=True)
+
+-- Dropping rows with missing values  
+df.dropna(inplace=True)
+
+
+# 8. Sorting Data
