@@ -143,3 +143,73 @@ df.dropna(inplace=True)
 
 
 # 8. Sorting Data
+Sorting is crucial for organizing data.
+### Example code
+-- Sort by a single column  
+df.sort_values(by='Price', ascending=False, inplace=True)
+
+-- Sort by multiple columns  
+df.sort_values(by=['Year', 'Price'], ascending=[True, False], inplace=True)
+
+
+# 9. Grouping and Aggregating
+Grouping and aggregation are essential for summarizing data.
+
+-- Grouping by 'Author' and summing prices  
+author_group = df.groupby('Author')['Price'].sum()
+print(author_group)
+
+
+# 10. Merging and Joining DataFrames
+You can merge and join DataFrames to combine data from multiple sources.
+
+### Example code
+-- Example DataFrames  
+df1 = pd.DataFrame({  
+    "Title": ["The Great Gatsby", "1984", "The Catcher in the Rye"],  
+    "Genre": ["Fiction", "Dystopian", "Fiction"]  
+})
+
+df2 = pd.DataFrame({  
+    "Title": ["The Great Gatsby", "1984", "Moby Dick"],  
+    "Sales": [1500000, 2500000, 500000]  
+})
+
+-- Merging on 'Title'  
+merged_df = pd.merge(df1, df2, on='Title', how='inner')  
+print(merged_df)
+
+
+# 11. Pivot Tables
+Pivot tables allow you to reshape data for easier analysis.
+
+-- Creating a pivot table  
+pivot_table = df.pivot_table(values='Price', index='Author', columns='Year', aggfunc='mean')  
+print(pivot_table)
+
+# 12. Working with Dates
+Handling dates is common in time series data.
+
+-- Converting a column to datetime  
+df['Publication Date'] = pd.to_datetime(df['Year'], format='%Y')
+
+-- Extracting year, month, day  
+df['Year'] = df['Publication Date'].dt.year
+
+
+# 13. Applying Functions
+You can apply custom functions to DataFrame elements.
+
+-- Applying a lambda function to each element in a column  
+df['Price After Tax'] = df['Price'].apply(lambda x: x * 1.05)
+
+
+# 14. Visualizing Data
+Pandas integrates well with Matplotlib for quick plotting.  
+
+import matplotlib.pyplot as plt  
+
+-- Simple plot of prices  
+df['Price'].plot(kind='bar')  
+plt.show()
+
