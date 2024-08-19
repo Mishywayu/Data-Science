@@ -45,4 +45,12 @@ df = df.set_index('Name')
 
 
 # Creating a MultiIndex
+arrays = [['A', 'A', 'B', 'B'], ['one', 'two', 'one', 'two']]
+index = pd.MultiIndex.from_arrays(arrays, names=('Group', 'Number'))
+df_multi = pd.DataFrame({'Data': [1, 2, 3, 4]}, index=index)
 
+# print(df_multi)
+
+# Accessing Data in MultiIndex
+print(df_multi.loc['A'])
+print(df_multi.loc[('A', 'one')])
