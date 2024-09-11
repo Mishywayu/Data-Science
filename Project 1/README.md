@@ -16,8 +16,8 @@
 	* Check for duplicate rows in the dataset. ✅
 	* Remove any duplicate rows found. ✅
 6.	Date Parsing and Transformation:
-	* Convert the Joining Date column to a standard datetime format.
-	* Extract the year and month from the Joining Date and create two new columns: Joining Year and Joining Month.
+	* Convert the Joining Date column to a standard datetime format. ✅
+	* Extract the year and month from the Joining Date and create two new columns: Joining Year and Joining Month. ✅
 7.	Visualization:
 	* Create a scatter plot showing the relationship between Age and Salary.
 	* Create a box plot for Performance Score by Department.
