@@ -58,8 +58,31 @@ ax.set_ylabel("Salary")
 ax.legend()
 # plt.show()
 
+
 # Create a box plot for Performance Score by Department.
-average_scores = df.groupby('department')['performance_score'].mean().reset_index()
+plt.figure(figsize=(10, 6))
+ax = df.boxplot(column='Performance Score', by='Department', grid=False)
+
+# Calculate average performance scores
+average_scores = df.groupby('Department')['Performance Score'].mean().reset_index()
+
+# Plot average performance scores
+for i, department in enumerate(average_scores['Department']):
+    avg_score = average_scores.loc[average_scores['Department'] == department, 'Performance Score'].values[0]
+    ax.scatter(i + 1, avg_score, color='red', label='Average Score' if i == 0 else '', zorder=5, s=100)
+
+# Set plot title and labels
+plt.title('Performance Score by Department')
+plt.suptitle('')  # Suppress the default title to avoid overlap
+plt.xlabel('Department')
+plt.ylabel('Performance Score')
+
+# Add a legend
+plt.legend()
+
+# Show the plot
+plt.show()
+
 
 # print(df["Department"].unique())
 # print(df.head())
