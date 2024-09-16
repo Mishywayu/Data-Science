@@ -19,14 +19,14 @@
 	* Convert the Joining Date column to a standard datetime format. ✅
 	* Extract the year and month from the Joining Date and create two new columns: Joining Year and Joining Month. ✅
 7.	Visualization:
-	* Create a scatter plot showing the relationship between Age and Salary.
-	* Create a box plot for Performance Score by Department.
+	* Create a scatter plot showing the relationship between Age and Salary. ✅
+	* Create a box plot for Performance Score by Department. ✅
 	* Plot the distribution of Salary values.
 8.	Grouping and Aggregation:
-	* Calculate the average Salary for each Department.
-	* Count the number of employees in each Joining Year.
+	* Calculate the average Salary for each Department. ✅
+	* Count the number of employees in each Joining Year. ✅
 9.	Boolean Filtering:
-	* Filter the dataset to show only active employees (IsActive is True).
-	* Identify employees with a Performance Score of 8 or above and a Salary greater than 100,000.
+	* Filter the dataset to show only active employees (IsActive is True). ✅
+	* Identify employees with a Performance Score of 8 or above and a Salary greater than 100,000. ✅
     
  #### These tasks will help you practice a wide range of data manipulation and analysis techniques using pandas and other Python libraries. 

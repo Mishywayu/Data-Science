@@ -36,7 +36,7 @@ df['Comments'] = df['Comments'].str.strip()
 
 #CONVERTING THE JOINING DATE COLUMN TO A STANDARD DATETIME FORMAT (which is YYYY/MM/DD)
 df["Joining Date"]=pd.to_datetime(df["Joining Date"])
-print(df["Joining Date"])
+# print(df["Joining Date"])
 
 # Extract the year and month from the Joining Date and create two new columns: Joining Year and Joining Month.
 df["Joining Year"]=df["Joining Date"].dt.year
@@ -81,9 +81,29 @@ plt.ylabel('Performance Score')
 plt.legend()
 
 # Show the plot
-plt.show()
+# plt.show()
 
 
 # print(df["Department"].unique())
 # print(df.head())
+# print(df.info())
+
+# 8.	Grouping and Aggregation:
+# Calculate the average Salary for each Department.
+average_salary_by_department = df.groupby('Department')['Salary'].mean()
+# print(average_salary_by_department)
+
+# Count the number of employees in each Joining Year.
 print(df.info())
+employee_count_by_year = df.groupby('Joining Year').size()
+# print(employee_count_by_year)
+
+
+# 9.	Boolean Filtering:
+# Filter the dataset to show only active employees (IsActive is True).
+df[df['IsActive'] == True]
+# print(df)
+
+# Identify employees with a Performance Score of 8 or above and a Salary greater than 100,000.
+high_performers = df[(df['Performance Score'] >= 8) & (df['Salary'] > 100000)]
+print(high_performers)
