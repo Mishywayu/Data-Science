@@ -19,7 +19,7 @@ df = pd.read_csv(filepath_2)
 
 #Feature Engineering
 # drop columns with null values
-df = df.dropna()
+# df = df.dropna()
 # df.info()
 
 
@@ -28,7 +28,12 @@ df = df.dropna()
 df = pd.get_dummies(df, columns=['Sex', 'Embarked'], drop_first=True)
 # Let's drop columns that won't help (like 'name', 'ticket', 'fare')
 df = df.drop(columns=['Name', 'Fare'])
+# df = df.dropna()
 df.info()
+# print(df['Embarked'].unique())
+# df['Embarked_Q'].head()
+# df['Embarked_S'].head(5)
+
 
 # # Selecting relevant features for modeling
 # X = df[['pclass', 'Age', 'SibSp', 'Parch', 'sex_male']]

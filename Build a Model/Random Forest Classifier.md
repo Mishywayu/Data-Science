@@ -53,3 +53,28 @@ If the value is 0, it's understood to be female. This helps reduce the number of
 * 2(c) Feature Selection
 Let’s select the most relevant features for our model.  
 You can use domain knowledge or automatic feature selection techniques (like Recursive Feature Elimination or feature importance) to determine the most important features.
+
+code: 
+#### Selecting relevant features for modeling
+X = df[['pclass', 'age', 'sibsp', 'parch', 'sex_male', 'embarked_Q', 'embarked_S']]  
+y = df['survived']  
+
+#### ** Explanation **
+1. Feature Selection (X):  
+X represents the feature set that will be used to train the machine learning model.  
+X = df[['pclass', 'age', 'sibsp', 'parch', 'sex_male', 'embarked_Q', 'embarked_S']]:  
+This selects a subset of columns (features) from the DataFrame df.  
+These features are chosen because they are likely relevant to predicting whether a passenger survived.  
+Explanation of Selected Features:  
+- 'pclass': The passenger class (1st, 2nd, or 3rd class).
+- 'age': The age of the passenger.
+- 'sibsp': The number of siblings or spouses aboard the Titanic with the passenger.
+- 'parch': The number of parents or children aboard the Titanic with the passenger.
+- 'sex_male': A dummy variable representing the sex of the passenger. (1 for male, 0 for female—likely created using pd.get_dummies()).
+- 'embarked_Q', 'embarked_S': Dummy variables representing the port of embarkation (Q for Queenstown, S for Southampton). Since there were three embarkation points (C = Cherbourg, Q = Queenstown, and S = Southampton), one of them (likely 'C') is dropped to avoid multicollinearity, often handled by drop_first=True in pd.get_dummies().  
+
+2. Target Variable (y):
+y represents the target variable, which is the outcome you are trying to predict.  
+y = df['survived']:  
+This selects the column 'survived' from the DataFrame df.  
+The column 'survived' contains the labels for classification—whether each passenger survived (1) or not (0).  
