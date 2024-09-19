@@ -78,3 +78,8 @@ y represents the target variable, which is the outcome you are trying to predict
 y = df['survived']:  
 This selects the column 'survived' from the DataFrame df.  
 The column 'survived' contains the labels for classification—whether each passenger survived (1) or not (0).  
+
+# 3. Model Selection
+Now, we’ll use a Random Forest classifier, which is a powerful ensemble method that combines multiple decision trees to improve predictive performance.
+
+# 4. Hyperparameter Tuning
