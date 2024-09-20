@@ -83,3 +83,6 @@ The column 'survived' contains the labels for classification—whether each pass
 Now, we’ll use a Random Forest classifier, which is a powerful ensemble method that combines multiple decision trees to improve predictive performance.
 
 # 4. Hyperparameter Tuning
+The performance of a Random Forest model can depend on hyperparameters such as the number of trees (n_estimators), the maximum depth of the trees, and the minimum number of samples required to split a node.
+
+We’ll use GridSearchCV to perform hyperparameter tuning to find the best parameters.
