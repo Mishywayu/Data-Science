@@ -21,3 +21,6 @@ my_iterator = iter(listA)
 print(f"This is output for Iterator example. The output is {next(my_iterator)}")
 print(f"This is output for Iterator example. The output is {next(my_iterator)}")
 print(f"This is output for Iterator example. The output is {next(my_iterator)}")
+print(f"This is output for Iterator example. The output is {next(my_iterator)}")
+print(f"This is output for Iterator example. The output is {next(my_iterator)}")
+print(f"This is output for Iterator example. The output is {next(my_iterator)}") #outputs error
