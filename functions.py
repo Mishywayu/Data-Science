@@ -28,3 +28,16 @@ def m2toft2(area_meter2):
     return area_feet2
 
 help(m2toft2)
+
+
+# PRACTICE
+# Write a function that returns the greatest per unit area property price
+# for a list of property prices per unit area and then use your function for the list
+# price_usd_per_m2
+
+price_usd_per_m2 = [97996.85, 36880.53, 176499.72]
+
+def find_max_price_per_area(price_usd_per_m2):
+    max_price = max(price_usd_per_m2)
+    return max_price
+print(f"The max price is {find_max_price_per_area(price_usd_per_m2)}")
