@@ -63,3 +63,31 @@ print(f"output for task 4 normal function: {product(pairs)}")
 # LAMBDA
 product = lambda pairs: [pair[0] * pair[1] for pair in pairs]
 print(f"Task 4 output, lambda function {product(pairs)}")
+
+
+
+# Task 5: Conditional Transformation
+# Use a lambda function to transform a list of numbers. If the number is even, square it; if it is odd, cube it.
+numbers = [1, 2, 3, 4, 5, 6]
+
+def transform(numbers):
+    squared = []
+    cubed = []
+    for number in numbers:
+        if number % 2 == 0:
+            squared.append(number ** 2)
+        else:
+            cubed.append(number ** 3)
+    return (squared, cubed)
+
+print(f"Task 5 output: {transform(numbers)}")
+
+# LAMBDA FUNCTION 
+transformer = lambda numbers: [number ** 2 if number % 2 == 0 else number ** 3 for number in numbers]
+print(f"Task 5 Lambda output: {transformer(numbers)}")
+
+
+
+# Task 6: Calculate Factorial Using reduce()
+# Write a lambda function inside reduce() (from functools) to calculate the factorial of a given number n.
+# Example: For n = 5, the output should be 120 (i.e., 5×4×3×2×1).
