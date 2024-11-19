@@ -23,3 +23,29 @@ else:
 finally:
     # Code that runs whether or not an error occurs(ALWAYS RUNS)
     print(f"This is the end of the try-except block")
+
+
+
+ # PRACTICE
+def find_max_price_per_area(price_per_meter2):
+    """Find the most expensive price per unit areas given a list
+
+    Parameters
+    ----------
+    price_per_meter : list of int
+        List with price per unit area of each property
+
+    Returns
+    -------
+    the price of the most expensive property per unit area
+    """
+    try:
+        max_price = max(price_usd_per_m2)
+    except:
+        print(f"Couldn't find max price, an error occured")
+    else:
+        print(f"Max price was found. It is {max_price}")
+    
+price_usd_per_m2 = [9799, 880.53, 176] #successfull
+# price_usd_per_m2 = ["190", 368.53, 1764] #prints error
+find_max_price_per_area(price_usd_per_m2)
