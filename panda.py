@@ -141,3 +141,29 @@ import pandas as pd
 df = pd.read_csv('books.csv')
 df = pd.get_dummies(df, columns=['Genre'])
 print(df.head())
+
+
+#Dropping columns and rows
+# Given a dataset colombia-real-estate-2 that has features:
+#  0   property_type  3066 non-null   object 
+#  1   department     3066 non-null   object 
+#  2   lat            2958 non-null   float64
+#  3   lon            2958 non-null   float64
+#  4   area_m2        3066 non-null   float64
+#  5   price_cop      3066 non-null   float64
+#  6   price_m2       3066 non-null   float64
+# and we want to drop column 'department', the code would look like:
+
+df = pd.read_csv("data/colombia-real-estate-2.csv")
+df = df.drop("department", axis="columns")
+
+# Dropping an entire row the axis changes to index
+# eg:
+df = pd.read_csv("data/colombia-real-estate-2.csv")
+df = df.drop(5, axis="index")
+
+# Including rows with empty cells can radically skew the results of our analysis, 
+# so we often drop them from the dataset. We can do this with the dropna method. 
+# If we wanted to do this with df, the code would look like this:
+df = pd.read_csv("data/colombia-real-estate-2.csv")
+df = df.dropna(inplace=True)
